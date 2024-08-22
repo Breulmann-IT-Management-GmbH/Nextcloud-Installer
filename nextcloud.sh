@@ -12,7 +12,7 @@ a2enmod headers
 a2enmod env 
 a2enmod dir 
 a2enmod mime 
-systemctl restart apache2
+#systemctl restart apache2
 sql(){
     mysql_secure_installation 
     mysql -e "CREATE DATABASE nextcloud;"
