@@ -21,7 +21,7 @@ sql(){
     mysql -e "FLUSH PRIVILEGES;"
 }
 
-
+sql
 
 ssl-config() {
     echo "Generating SSL"
