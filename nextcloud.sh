@@ -5,21 +5,22 @@ chmod +x ~/Nextcloud-Installer/install-redis.sh
 chmod +x ~/Nextcloud-Installer/get-nextcloud.sh
 ./install-php.sh
 ./install-redis.sh
-./get-nextcloud.sh &
+./get-nextcloud.sh 
 
 a2enmod rewrite 
 a2enmod headers 
 a2enmod env 
 a2enmod dir 
 a2enmod mime 
-
-mysql_secure_installation 
-mysql -e "CREATE DATABASE nextcloud;"
-mysql -e "CREATE USER 'nextcloud'@'localhost' IDENTIFIED BY '2245TmT30!!##';"
-mysql -e "GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost';"
-mysql -e "FLUSH PRIVILEGES;"
-
 systemctl restart apache2
+sql(){
+    mysql_secure_installation 
+    mysql -e "CREATE DATABASE nextcloud;"
+    mysql -e "CREATE USER 'nextcloud'@'localhost' IDENTIFIED BY '2245TmT30!!##';"
+    mysql -e "GRANT ALL PRIVILEGES ON nextcloud.* TO 'nextcloud'@'localhost';"
+    mysql -e "FLUSH PRIVILEGES;"
+}
+
 
 
 ssl-config() {
